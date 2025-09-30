@@ -1,0 +1,87 @@
+/* Classic Roblox 2018-2019 look */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #ececec;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 400px;
+  margin: 30px auto;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 20px;
+  border: 2px solid #c4c4c4;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+header h1 {
+  font-size: 2em;
+  color: #0074bd;
+  margin: 0;
+  padding: 10px 0;
+}
+nav button {
+  background: #0074bd;
+  color: #fff;
+  border: none;
+  margin: 0 6px;
+  padding: 6px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1em;
+}
+nav button:hover {
+  background: #005fa3;
+}
+.auth-section {
+  margin: 0 0 18px 0;
+}
+.hidden {
+  display: none;
+}
+input[type="text"], input[type="password"] {
+  width: 90%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #c4c4c4;
+  border-radius: 3px;
+  font-size: 1em;
+}
+button[type="submit"], #revive-btn, #logout-btn {
+  background: #0074bd;
+  color: #fff;
+  border: none;
+  margin-top: 10px;
+  padding: 10px 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1em;
+  width: 100%;
+}
+button[type="submit"]:hover, #revive-btn:hover, #logout-btn:hover {
+  background: #005fa3;
+}
+.simulator-ui {
+  text-align: center;
+}
+footer {
+  text-align: center;
+  font-size: 0.95em;
+  margin-top: 18px;
+  color: #666;
+}
+footer a {
+  color: #0074bd;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
