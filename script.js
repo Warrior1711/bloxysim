@@ -1,18 +1,16 @@
 // UI switching
 const loginSection = document.getElementById('login-section');
 const registerSection = document.getElementById('register-section');
-const simulatorSection = document.getElementById('simulator-section');
+const accountSection = document.getElementById('account-section');
 const navLogin = document.getElementById('nav-login');
 const navRegister = document.getElementById('nav-register');
 const userDisplay = document.getElementById('user-display');
-const reviveBtn = document.getElementById('revive-btn');
-const reviveCount = document.getElementById('revive-count');
 const logoutBtn = document.getElementById('logout-btn');
 
 function showSection(section) {
   loginSection.classList.add('hidden');
   registerSection.classList.add('hidden');
-  simulatorSection.classList.add('hidden');
+  accountSection.classList.add('hidden');
   section.classList.remove('hidden');
 }
 
@@ -28,7 +26,7 @@ document.getElementById('register-form').onsubmit = function(e) {
   if (!username || !password) return alert('Fill all fields!');
   let users = JSON.parse(localStorage.getItem('users') || '{}');
   if (users[username]) return alert('Username already exists!');
-  users[username] = { password: password, reviveCount: 0 };
+  users[username] = { password: password };
   localStorage.setItem('users', JSON.stringify(users));
   alert('Account created! Please login.');
   showSection(loginSection);
@@ -45,25 +43,13 @@ document.getElementById('login-form').onsubmit = function(e) {
     return;
   }
   localStorage.setItem('currentUser', username);
-  startSimulator(username);
+  showAccount(username);
 };
 
-function startSimulator(username) {
-  showSection(simulatorSection);
+function showAccount(username) {
+  showSection(accountSection);
   userDisplay.textContent = username;
-  const users = JSON.parse(localStorage.getItem('users') || '{}');
-  reviveCount.textContent = users[username]?.reviveCount || 0;
 }
-
-// Revival simulator logic
-reviveBtn.onclick = function() {
-  let username = localStorage.getItem('currentUser');
-  if (!username) return;
-  let users = JSON.parse(localStorage.getItem('users') || '{}');
-  users[username].reviveCount = (users[username].reviveCount || 0) + 1;
-  localStorage.setItem('users', JSON.stringify(users));
-  reviveCount.textContent = users[username].reviveCount;
-};
 
 // Logout
 logoutBtn.onclick = function() {
@@ -75,7 +61,7 @@ logoutBtn.onclick = function() {
 window.onload = function() {
   let username = localStorage.getItem('currentUser');
   if (username && JSON.parse(localStorage.getItem('users') || '{}')[username]) {
-    startSimulator(username);
+    showAccount(username);
   } else {
     showSection(loginSection);
   }
