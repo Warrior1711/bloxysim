@@ -55,7 +55,7 @@ input[type="text"], input[type="password"] {
   border-radius: 3px;
   font-size: 1em;
 }
-button[type="submit"], #revive-btn, #logout-btn {
+button[type="submit"], #logout-btn {
   background: #0074bd;
   color: #fff;
   border: none;
@@ -66,10 +66,10 @@ button[type="submit"], #revive-btn, #logout-btn {
   font-size: 1em;
   width: 100%;
 }
-button[type="submit"]:hover, #revive-btn:hover, #logout-btn:hover {
+button[type="submit"]:hover, #logout-btn:hover {
   background: #005fa3;
 }
-.simulator-ui {
+.account-ui {
   text-align: center;
 }
 footer {
